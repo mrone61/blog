@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Wi-Fi Pentest Course</title>
 
+  <!-- GOOGLE FONT -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -24,13 +29,17 @@
       overflow-x:hidden;
     }
 
+    /* BACKGROUND */
+
     body::before{
       content:'';
       position:fixed;
       inset:0;
+
       background:
-      linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.92)),
+      linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.94)),
       url('https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=1974&auto=format&fit=crop');
+
       background-size:cover;
       background-position:center;
       z-index:-2;
@@ -40,6 +49,7 @@
       content:'';
       position:fixed;
       inset:0;
+
       background:
       repeating-linear-gradient(
       to bottom,
@@ -48,6 +58,7 @@
       transparent 1px,
       transparent 3px
       );
+
       z-index:-1;
       pointer-events:none;
     }
@@ -62,14 +73,17 @@
 
     nav{
       width:100%;
-      padding:25px 0;
       position:fixed;
       top:0;
       left:0;
       z-index:999;
+
       background:rgba(0,0,0,.7);
       backdrop-filter:blur(10px);
+
       border-bottom:1px solid rgba(255,0,0,.2);
+
+      padding:25px 0;
     }
 
     .nav-wrapper{
@@ -83,6 +97,7 @@
       font-size:28px;
       font-weight:900;
       color:#ff0000;
+      text-shadow:0 0 10px rgba(255,0,0,.8);
     }
 
     .logo span{
@@ -98,17 +113,14 @@
       color:white;
       text-decoration:none;
       transition:.3s;
+      font-weight:500;
     }
 
     .nav-menu a:hover{
       color:#ff0000;
     }
 
-    /* SECTION */
-
-    section{
-      padding:100px 0;
-    }
+    /* HERO */
 
     .hero{
       min-height:100vh;
@@ -120,16 +132,25 @@
     .hero-content{
       display:grid;
       grid-template-columns:1fr 450px;
-      gap:40px;
+      gap:50px;
       align-items:center;
+    }
+
+    .subtitle{
+      display:inline-block;
+      border:1px solid #ff0000;
+      padding:12px 25px;
+      background:rgba(255,0,0,.08);
+      letter-spacing:2px;
+      margin-bottom:30px;
     }
 
     .title{
       font-family:'Orbitron',sans-serif;
-      font-size:90px;
-      line-height:0.9;
-      margin-bottom:25px;
+      font-size:95px;
+      line-height:.9;
       text-transform:uppercase;
+      margin-bottom:30px;
     }
 
     .title span{
@@ -137,20 +158,12 @@
       text-shadow:0 0 20px #ff0000;
     }
 
-    .subtitle{
-      display:inline-block;
-      border:1px solid #ff0000;
-      padding:12px 25px;
-      margin-bottom:30px;
-      background:rgba(255,0,0,.08);
-      letter-spacing:2px;
-    }
-
     .description{
       color:#ccc;
-      line-height:1.9;
-      margin-bottom:40px;
+      line-height:2;
       max-width:700px;
+      margin-bottom:40px;
+      font-size:17px;
     }
 
     .hero-buttons{
@@ -160,13 +173,13 @@
     }
 
     .btn{
-      padding:15px 35px;
+      padding:16px 35px;
       border-radius:10px;
+      border:2px solid #ff0000;
       text-decoration:none;
+      cursor:pointer;
       transition:.3s;
       font-weight:600;
-      border:2px solid #ff0000;
-      cursor:pointer;
       display:inline-block;
     }
 
@@ -183,6 +196,7 @@
 
     .btn-outline{
       color:#ff0000;
+      background:transparent;
     }
 
     .btn-outline:hover{
@@ -190,28 +204,41 @@
       color:white;
     }
 
-    /* CARD */
+    /* PRICE CARD */
 
     .pricing-card{
       background:rgba(0,0,0,.65);
       border:1px solid rgba(255,0,0,.5);
-      backdrop-filter:blur(10px);
-      padding:40px;
       border-radius:20px;
+      padding:45px;
+      backdrop-filter:blur(10px);
+
       box-shadow:0 0 40px rgba(255,0,0,.15);
     }
 
+    .pricing-card h3{
+      color:#ff0000;
+      font-size:25px;
+      margin-bottom:20px;
+    }
+
     .price{
-      font-size:75px;
+      font-size:80px;
       font-family:'Orbitron',sans-serif;
       color:#ff0000;
-      margin:20px 0;
-      text-shadow:0 0 20px rgba(255,0,0,.8);
+      margin-bottom:20px;
+
+      text-shadow:0 0 20px rgba(255,0,0,.9);
+    }
+
+    .pricing-card p{
+      color:#ccc;
+      line-height:1.8;
+      margin-bottom:25px;
     }
 
     .features{
       list-style:none;
-      margin-top:20px;
     }
 
     .features li{
@@ -219,12 +246,16 @@
       border-bottom:1px solid rgba(255,255,255,.08);
     }
 
-    /* TITLE */
+    /* SECTION */
+
+    section{
+      padding:100px 0;
+    }
 
     .section-title{
       text-align:center;
       font-size:50px;
-      margin-bottom:60px;
+      margin-bottom:70px;
       font-family:'Orbitron',sans-serif;
     }
 
@@ -243,8 +274,9 @@
     .card{
       background:rgba(0,0,0,.55);
       border:1px solid rgba(255,0,0,.25);
-      padding:35px;
       border-radius:20px;
+      padding:35px;
+
       transition:.4s;
       backdrop-filter:blur(6px);
     }
@@ -252,7 +284,7 @@
     .card:hover{
       transform:translateY(-10px);
       border-color:#ff0000;
-      box-shadow:0 0 30px rgba(255,0,0,.2);
+      box-shadow:0 0 30px rgba(255,0,0,.25);
     }
 
     .card-icon{
@@ -263,18 +295,52 @@
     .card h3{
       color:#ff0000;
       margin-bottom:15px;
+      font-size:24px;
     }
 
     .card p{
-      color:#c9c9c9;
+      color:#ccc;
       line-height:1.8;
+    }
+
+    /* CONTACT */
+
+    .contact-box{
+      max-width:900px;
+      margin:auto;
+
+      background:rgba(0,0,0,.6);
+      border:1px solid rgba(255,0,0,.25);
+
+      border-radius:20px;
+      padding:50px;
+      text-align:center;
+    }
+
+    .contact-box h2{
+      font-family:'Orbitron',sans-serif;
+      font-size:45px;
+      margin-bottom:20px;
+    }
+
+    .contact-box p{
+      color:#ccc;
+      line-height:1.8;
+      margin-bottom:25px;
+    }
+
+    .contact-email{
+      color:#ff0000;
+      font-size:25px;
+      margin-bottom:30px;
+      font-weight:600;
     }
 
     /* FORM PAGE */
 
     .form-page{
-      display:none;
       min-height:100vh;
+      display:none;
       align-items:center;
       justify-content:center;
       padding:120px 20px;
@@ -282,19 +348,23 @@
 
     .form-box{
       width:100%;
-      max-width:600px;
-      background:rgba(0,0,0,.75);
+      max-width:650px;
+
+      background:rgba(0,0,0,.7);
       border:1px solid rgba(255,0,0,.3);
+
       border-radius:25px;
       padding:50px;
+
       backdrop-filter:blur(10px);
-      box-shadow:0 0 40px rgba(255,0,0,.15);
+
+      box-shadow:0 0 40px rgba(255,0,0,.2);
     }
 
     .form-box h2{
       font-family:'Orbitron',sans-serif;
+      font-size:45px;
       margin-bottom:15px;
-      font-size:40px;
     }
 
     .form-box h2 span{
@@ -302,9 +372,9 @@
     }
 
     .form-box p{
-      color:#bfbfbf;
-      margin-bottom:30px;
+      color:#ccc;
       line-height:1.8;
+      margin-bottom:30px;
     }
 
     .input-group{
@@ -321,9 +391,12 @@
       width:100%;
       padding:16px;
       border-radius:10px;
+
       border:1px solid rgba(255,0,0,.3);
+
       background:#111;
       color:white;
+
       outline:none;
       transition:.3s;
       font-size:16px;
@@ -342,11 +415,13 @@
     }
 
     .success-message{
+      display:none;
       margin-top:25px;
       color:#00ff88;
-      display:none;
       font-weight:600;
     }
+
+    /* FOOTER */
 
     footer{
       padding:30px;
@@ -355,6 +430,8 @@
       color:#888;
     }
 
+    /* RESPONSIVE */
+
     @media(max-width:1000px){
 
       .hero-content{
@@ -362,27 +439,35 @@
       }
 
       .title{
-        font-size:60px;
+        font-size:65px;
       }
 
       .section-title{
-        font-size:36px;
+        font-size:40px;
       }
 
     }
 
-    @media(max-width:600px){
+    @media(max-width:700px){
 
       .title{
         font-size:45px;
       }
 
       .price{
-        font-size:50px;
+        font-size:55px;
       }
 
       .nav-menu{
         display:none;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      .btn{
+        text-align:center;
       }
 
       .form-box{
@@ -392,6 +477,7 @@
     }
 
   </style>
+
 </head>
 
 <body>
@@ -407,9 +493,11 @@
       </div>
 
       <div class="nav-menu">
+
         <a href="#">Beranda</a>
         <a href="#materi">Materi</a>
         <a href="#contact">Kontak</a>
+
       </div>
 
     </div>
@@ -419,6 +507,8 @@
   <!-- HOME PAGE -->
 
   <div id="homePage">
+
+    <!-- HERO -->
 
     <section class="hero">
 
@@ -438,10 +528,15 @@
             </h1>
 
             <p class="description">
+
               Pelajari cara kerja jaringan Wi-Fi,
-              teknik reconnaissance, packet analysis,
+              reconnaissance, packet analysis,
               hingga wireless attack secara profesional,
               legal, dan etis.
+
+              Bangun skill cyber security dan jadilah
+              bagian dari generasi keamanan digital.
+
             </p>
 
             <div class="hero-buttons">
@@ -458,6 +553,8 @@
 
           </div>
 
+          <!-- PRICE CARD -->
+
           <div class="pricing-card">
 
             <h3>Kelas Premium</h3>
@@ -467,15 +564,20 @@
             </div>
 
             <p>
-              Investasi skill untuk masa depan
-              keamanan digital yang lebih aman.
+
+              Investasi skill untuk memahami keamanan
+              jaringan wireless secara profesional.
+
             </p>
 
             <ul class="features">
+
               <li>✔ Full Praktik</li>
               <li>✔ Offline Private</li>
-              <li>✔ Sertifikat</li>
               <li>✔ Mentor Berpengalaman</li>
+              <li>✔ Sertifikat</li>
+              <li>✔ Real Practice</li>
+
             </ul>
 
           </div>
@@ -499,40 +601,65 @@
         <div class="grid">
 
           <div class="card">
+
             <div class="card-icon">📡</div>
+
             <h3>Dasar Wireless</h3>
+
             <p>
-              Memahami konsep dasar jaringan Wi-Fi
+
+              Memahami konsep dasar jaringan Wi-Fi,
+              access point, frequency,
               dan cara kerja wireless networking.
+
             </p>
+
           </div>
 
           <div class="card">
+
             <div class="card-icon">🔍</div>
+
             <h3>Recon & Scanning</h3>
+
             <p>
+
               Belajar scanning target,
               monitoring jaringan,
               dan pengumpulan informasi.
+
             </p>
+
           </div>
 
           <div class="card">
+
             <div class="card-icon">💀</div>
+
             <h3>Wireless Attack</h3>
+
             <p>
+
               Simulasi pengujian keamanan
               wireless secara legal dan etis.
+
             </p>
+
           </div>
 
           <div class="card">
+
             <div class="card-icon">🛡️</div>
+
             <h3>Defense & Security</h3>
+
             <p>
+
               Memahami cara melindungi jaringan
               dan meningkatkan keamanan wireless.
+
             </p>
+
           </div>
 
         </div>
@@ -547,19 +674,26 @@
 
       <div class="container">
 
-        <div class="card" style="text-align:center;">
+        <div class="contact-box">
 
-          <h2 class="section-title">
+          <h2>
             PENDAFTARAN
           </h2>
 
-          <p style="color:#ccc;margin-bottom:30px;">
-            Hubungi email berikut untuk informasi lebih lanjut.
+          <p>
+
+            Hubungi email berikut untuk informasi
+            lebih lanjut mengenai kelas.
+
           </p>
 
-          <h2 style="color:#ff0000;">
+          <div class="contact-email">
             cyberarmywestpapua@proton.me
-          </h2>
+          </div>
+
+          <button class="btn btn-primary" onclick="openFormPage()">
+            Pesan Sekarang
+          </button>
 
         </div>
 
@@ -580,30 +714,51 @@
       </h2>
 
       <p>
-        Silahkan isi data berikut untuk melakukan
-        pemesanan kelas Wi-Fi Pentest.
+
+        Silahkan isi data berikut untuk
+        melakukan pemesanan kelas Wi-Fi Pentest.
+
       </p>
 
       <form id="registerForm">
 
         <div class="input-group">
+
           <label>Nama Lengkap</label>
-          <input type="text" id="fullname" placeholder="Masukkan nama lengkap..." required>
+
+          <input
+          type="text"
+          id="fullname"
+          placeholder="Masukkan nama lengkap..."
+          required>
+
         </div>
 
         <div class="input-group">
+
           <label>Email</label>
-          <input type="email" id="email" placeholder="Masukkan email..." required>
+
+          <input
+          type="email"
+          id="email"
+          placeholder="Masukkan email..."
+          required>
+
         </div>
 
         <div class="form-buttons">
 
           <button type="submit" class="btn btn-primary">
-            Kirim Data
+            Kirim ke WhatsApp
           </button>
 
-          <button type="button" class="btn btn-outline" onclick="backToHome()">
+          <button
+          type="button"
+          class="btn btn-outline"
+          onclick="backToHome()">
+
             Kembali ke Home
+
           </button>
 
         </div>
@@ -618,11 +773,17 @@
 
   </div>
 
+  <!-- FOOTER -->
+
   <footer>
     © 2026 RED TEAM - Wi-Fi Pentest Course
   </footer>
 
+  <!-- JAVASCRIPT -->
+
   <script>
+
+    // PAGE SWITCH
 
     const homePage = document.getElementById("homePage");
     const formPage = document.getElementById("formPage");
@@ -657,11 +818,40 @@
       const email = document.getElementById("email").value;
 
       if(fullname === "" || email === ""){
+
         alert("Lengkapi data terlebih dahulu!");
         return;
+
       }
 
+      // NOMOR WHATSAPP
+
+      const phoneNumber = "6282239959100";
+
+      // PESAN OTOMATIS
+
+      const message =
+`Halo Admin Wi-Fi Pentest
+
+Saya ingin mendaftar kursus.
+
+Nama Lengkap : ${fullname}
+Email : ${email}`;
+
+      // URL WHATSAPP
+
+      const whatsappURL =
+`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+      // OPEN WHATSAPP
+
+      window.open(whatsappURL, "_blank");
+
+      // SUCCESS MESSAGE
+
       document.getElementById("successMessage").style.display = "block";
+
+      // RESET FORM
 
       registerForm.reset();
 
