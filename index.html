@@ -3,55 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Diri Jekson Kambu</title>
+    <title>Papua Cyber Community</title>
 
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f4f6f8;
-            color: #333;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #111;
         }
 
         header {
-            background-color: #1f2937;
+            background: #0f172a;
             color: white;
             padding: 25px;
             text-align: center;
         }
 
-        main {
-            max-width: 800px;
-            margin: 30px auto;
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
+        header h1 {
+            margin: 0;
+            font-size: 28px;
         }
 
-        h1, h2 {
-            margin-bottom: 10px;
+        header p {
+            margin-top: 5px;
+            color: #cbd5e1;
         }
 
-        section {
-            margin-bottom: 20px;
+        nav {
+            background: #1e293b;
+            padding: 10px;
+            text-align: center;
         }
 
-        ul {
-            padding-left: 20px;
+        nav a {
+            color: white;
+            margin: 0 12px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 25px auto;
+            padding: 10px;
         }
 
         .card {
-            background: #f9fafb;
-            padding: 15px;
-            border-radius: 8px;
+            background: white;
+            padding: 18px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #2563eb;
+            color: white;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        .btn {
+            display: inline-block;
             margin-top: 10px;
+            padding: 8px 12px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
         }
 
         footer {
+            background: #0f172a;
+            color: white;
             text-align: center;
             padding: 15px;
-            background: #1f2937;
-            color: white;
             margin-top: 30px;
         }
     </style>
@@ -60,70 +93,54 @@
 <body>
 
 <header>
-    <h1>Profil Diri</h1>
-    <p>Jekson Kambu</p>
+    <h1>Papua Cyber Community</h1>
+    <p>Komunitas Belajar Teknologi, Jaringan, dan Keamanan Siber</p>
 </header>
 
-<main>
+<nav>
+    <a href="#">Beranda</a>
+    <a href="#">Artikel</a>
+    <a href="#">Cyber Security</a>
+    <a href="#">Networking</a>
+    <a href="#">Tentang Kami</a>
+</nav>
 
-    <section>
-        <h2>Tentang Saya</h2>
-        <div class="card">
-            Halo, saya <b>Jekson Kambu</b>. Saya seorang mahasiswa yang memiliki minat di bidang teknologi informasi, khususnya keamanan siber.
-        </div>
-    </section>
+<div class="container">
 
-    <section>
-        <h2>Profil Singkat</h2>
-        <div class="card">
-            <ul>
-                <li>Nama: Jekson Kambu</li>
-                <li>Status: Mahasiswa</li>
-                <li>Minat: Keamanan Siber</li>
-            </ul>
-        </div>
-    </section>
+    <div class="card">
+        <span class="tag">Cyber Security</span>
+        <h2>Pentingnya Keamanan Siber di Era Digital</h2>
+        <p>
+            Keamanan siber menjadi aspek penting dalam perkembangan teknologi modern.
+            Setiap sistem yang terhubung ke internet memiliki potensi risiko serangan digital.
+        </p>
+        <a href="#" class="btn">Baca Artikel</a>
+    </div>
 
-    <section>
-        <h2>Hobi</h2>
-        <div class="card">
-            <ul>
-                <li>Scripting</li>
-                <li>Networking (Jaringan Komputer)</li>
-                <li>Pentesting (Pengujian Keamanan Sistem)</li>
-            </ul>
-        </div>
-    </section>
+    <div class="card">
+        <span class="tag">Networking</span>
+        <h2>Dasar Jaringan Komputer untuk Pemula</h2>
+        <p>
+            Jaringan komputer adalah fondasi utama dalam komunikasi antar perangkat.
+            Memahami konsep dasar networking sangat penting untuk bidang IT.
+        </p>
+        <a href="#" class="btn">Baca Artikel</a>
+    </div>
 
-    <section>
-        <h2>Skill</h2>
-        <div class="card">
-            <ul>
-                <li>Linux</li>
-                <li>Networking</li>
-                <li>Penetration Testing</li>
-            </ul>
-        </div>
-    </section>
+    <div class="card">
+        <span class="tag">Programming</span>
+        <h2>Peran Scripting dalam Otomatisasi Sistem</h2>
+        <p>
+            Scripting digunakan untuk mengotomatisasi berbagai tugas dalam sistem komputer
+            sehingga pekerjaan menjadi lebih efisien.
+        </p>
+        <a href="#" class="btn">Baca Artikel</a>
+    </div>
 
-    <section>
-        <h2>Cita-cita</h2>
-        <div class="card">
-            Menjadi seorang pakar keamanan siber (Cyber Security Expert)
-        </div>
-    </section>
-
-    <section>
-        <h2>Penutup</h2>
-        <div class="card">
-            Demikian profil diri ini saya buat. Terima kasih telah mengunjungi website ini.
-        </div>
-    </section>
-
-</main>
+</div>
 
 <footer>
-    © 2026 - Jekson Kambu
+    © 2026 Papua Cyber Community - All Rights Reserved
 </footer>
 
 </body>
