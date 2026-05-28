@@ -6,39 +6,59 @@
 <title>Papua Cyber Community</title>
 
 <style>
-body{
+:root{
+--bg:#000;
+--card:#0f0f0f;
+--text:#fff;
+--muted:#aaa;
+--accent:#00ffcc;
+}
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial;
-background:#000;
-color:#fff;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
 }
 
 /* TOP BAR */
 .topbar{
 display:flex;
+justify-content:space-between;
 align-items:center;
-padding:12px 15px;
+padding:14px;
 background:#0a0a0a;
+border-bottom:1px solid #222;
 position:sticky;
 top:0;
+}
+
+.brand{
+color:var(--accent);
+font-weight:bold;
 }
 
 .menu-btn{
 font-size:26px;
 cursor:pointer;
-user-select:none;
 }
 
 /* DROPDOWN */
 .dropdown{
 display:none;
 position:absolute;
-top:50px;
+top:55px;
 left:10px;
 background:#111;
 border:1px solid #333;
-border-radius:8px;
-width:150px;
+border-radius:10px;
+overflow:hidden;
+width:170px;
 z-index:999;
 }
 
@@ -53,41 +73,93 @@ text-decoration:none;
 background:#222;
 }
 
-/* CONTENT */
-.container{
-max-width:900px;
+/* HERO */
+.hero{
+text-align:center;
+padding:30px 15px;
+}
+
+.hero h1{
+color:var(--accent);
+}
+
+/* SEARCH + FILTER */
+.controls{
+max-width:1000px;
 margin:20px auto;
+padding:0 15px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+input, select{
+padding:10px;
+border-radius:8px;
+border:none;
+outline:none;
+background:#111;
+color:#fff;
+border:1px solid #333;
+flex:1;
+}
+
+/* CARDS */
+.container{
+max-width:1000px;
+margin:auto;
 padding:15px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
 }
 
 .card{
-background:#111;
-padding:18px;
-margin-bottom:15px;
-border-radius:10px;
+background:var(--card);
+padding:15px;
+border-radius:12px;
 border:1px solid #222;
+transition:0.2s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:#333;
 }
 
 .tag{
-color:#00ffcc;
+color:var(--accent);
 font-size:12px;
 }
 
-h2{
-color:#00ffcc;
+.card h3{
+margin:10px 0;
 }
 
-/* BACK BUTTON */
-.back{
+.card p{
+color:var(--muted);
+font-size:14px;
+line-height:1.5;
+}
+
+.btn{
 display:inline-block;
-margin-bottom:15px;
+margin-top:10px;
 padding:8px 12px;
-background:#222;
-color:#fff;
+background:var(--accent);
+color:#000;
 text-decoration:none;
 border-radius:6px;
+font-weight:bold;
 }
 
+footer{
+text-align:center;
+padding:20px;
+color:#666;
+border-top:1px solid #222;
+margin-top:30px;
+}
 </style>
 </head>
 
@@ -95,6 +167,7 @@ border-radius:6px;
 
 <div class="topbar">
 <div class="menu-btn" onclick="toggleMenu()">⋮</div>
+<div class="brand">PCC</div>
 
 <div id="menu" class="dropdown">
 <a href="about.html">Tentang</a>
@@ -102,50 +175,105 @@ border-radius:6px;
 </div>
 </div>
 
-<div class="container">
-
-<div class="card">
-<h2>Papua Cyber Community</h2>
-<p>Komunitas yang berfokus pada pengembangan teknologi, networking, programming, dan keamanan siber.</p>
+<div class="hero">
+<h1>Papua Cyber Community</h1>
+<p>Portal artikel Cyber Security, Networking, Programming</p>
 </div>
 
-<div class="card">
-<div class="tag">Cyber Security</div>
-<h2>Dasar Pentesting dalam Keamanan Sistem</h2>
-<p>Pentesting digunakan untuk menguji keamanan sistem dan menemukan celah sebelum disalahgunakan.</p>
+<!-- SEARCH + FILTER -->
+<div class="controls">
+<input type="text" id="search" placeholder="Cari artikel...">
+<select id="filter">
+<option value="all">Semua Kategori</option>
+<option value="cyber">Cyber Security</option>
+<option value="networking">Networking</option>
+<option value="scripting">Scripting</option>
+<option value="pentest">Pentesting</option>
+</select>
 </div>
 
-<div class="card">
-<div class="tag">Networking</div>
-<h2>Pentingnya Jaringan Komputer</h2>
-<p>Networking adalah dasar komunikasi antar perangkat dalam dunia teknologi modern.</p>
+<!-- ARTICLES -->
+<div class="container" id="articles">
+
+<div class="card" data-category="cyber">
+<div class="tag">CYBER SECURITY</div>
+<h3>Dasar Keamanan Siber</h3>
+<p>Keamanan sistem penting untuk melindungi data dari serangan digital.</p>
+<a class="btn" href="#">Baca</a>
 </div>
 
-<div class="card">
-<div class="tag">Programming</div>
-<h2>Scripting untuk Otomatisasi Sistem</h2>
-<p>Scripting membantu mengotomatisasi tugas agar lebih efisien dan cepat.</p>
+<div class="card" data-category="networking">
+<div class="tag">NETWORKING</div>
+<h3>Dasar Jaringan Komputer</h3>
+<p>Networking adalah dasar komunikasi antar perangkat dalam sistem komputer.</p>
+<a class="btn" href="#">Baca</a>
+</div>
+
+<div class="card" data-category="scripting">
+<div class="tag">SCRIPTING</div>
+<h3>Otomatisasi Sistem</h3>
+<p>Scripting membantu otomatisasi tugas agar lebih efisien.</p>
+<a class="btn" href="#">Baca</a>
+</div>
+
+<div class="card" data-category="pentest">
+<div class="tag">PENTESTING</div>
+<h3>Pengujian Keamanan Sistem</h3>
+<p>Pentesting digunakan untuk menemukan celah keamanan sebelum diserang.</p>
+<a class="btn" href="#">Baca</a>
 </div>
 
 </div>
+
+<footer>
+© 2026 Papua Cyber Community
+</footer>
 
 <script>
 
-// toggle menu
+/* MENU */
 function toggleMenu(){
 let menu=document.getElementById("menu");
-menu.style.display = menu.style.display === "block" ? "none" : "block";
+menu.style.display=menu.style.display==="block"?"none":"block";
 }
 
-// close menu when click outside
-document.addEventListener("click", function(event){
+document.addEventListener("click",function(e){
 let menu=document.getElementById("menu");
 let btn=document.querySelector(".menu-btn");
 
-if(!menu.contains(event.target) && !btn.contains(event.target)){
+if(!menu.contains(e.target) && !btn.contains(e.target)){
 menu.style.display="none";
 }
 });
+
+/* SEARCH + FILTER */
+const search=document.getElementById("search");
+const filter=document.getElementById("filter");
+const cards=document.querySelectorAll(".card");
+
+function filterArticles(){
+
+let keyword=search.value.toLowerCase();
+let category=filter.value;
+
+cards.forEach(card=>{
+let text=card.innerText.toLowerCase();
+let cat=card.getAttribute("data-category");
+
+let matchText=text.includes(keyword);
+let matchCat=(category==="all" || cat===category);
+
+if(matchText && matchCat){
+card.style.display="block";
+}else{
+card.style.display="none";
+}
+
+});
+}
+
+search.addEventListener("input",filterArticles);
+filter.addEventListener("change",filterArticles);
 
 </script>
 
