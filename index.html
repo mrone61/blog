@@ -1,281 +1,673 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Papua Cyber Community</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wi-Fi Pentest Course</title>
 
-<style>
-:root{
---bg:#000;
---card:#0f0f0f;
---text:#fff;
---muted:#aaa;
---accent:#00ffcc;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
-}
+  <style>
 
-body{
-background:var(--bg);
-color:var(--text);
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
 
-/* TOP BAR */
-.topbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:14px;
-background:#0a0a0a;
-border-bottom:1px solid #222;
-position:sticky;
-top:0;
-}
+    body{
+      background:#050505;
+      color:white;
+      font-family:'Poppins',sans-serif;
+      overflow-x:hidden;
+    }
 
-.brand{
-color:var(--accent);
-font-weight:bold;
-}
+    body::before{
+      content:'';
+      position:fixed;
+      inset:0;
+      background:
+      linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.92)),
+      url('https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=1974&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      z-index:-2;
+    }
 
-.menu-btn{
-font-size:26px;
-cursor:pointer;
-}
+    body::after{
+      content:'';
+      position:fixed;
+      inset:0;
+      background:
+      repeating-linear-gradient(
+      to bottom,
+      rgba(255,0,0,.04),
+      rgba(255,0,0,.04) 1px,
+      transparent 1px,
+      transparent 3px
+      );
+      z-index:-1;
+      pointer-events:none;
+    }
 
-/* DROPDOWN */
-.dropdown{
-display:none;
-position:absolute;
-top:55px;
-left:10px;
-background:#111;
-border:1px solid #333;
-border-radius:10px;
-overflow:hidden;
-width:170px;
-z-index:999;
-}
+    .container{
+      width:90%;
+      max-width:1400px;
+      margin:auto;
+    }
 
-.dropdown a{
-display:block;
-padding:10px;
-color:#fff;
-text-decoration:none;
-}
+    /* NAVBAR */
 
-.dropdown a:hover{
-background:#222;
-}
+    nav{
+      width:100%;
+      padding:25px 0;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:999;
+      background:rgba(0,0,0,.7);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,0,0,.2);
+    }
 
-/* HERO */
-.hero{
-text-align:center;
-padding:30px 15px;
-}
+    .nav-wrapper{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
 
-.hero h1{
-color:var(--accent);
-}
+    .logo{
+      font-family:'Orbitron',sans-serif;
+      font-size:28px;
+      font-weight:900;
+      color:#ff0000;
+    }
 
-/* SEARCH + FILTER */
-.controls{
-max-width:1000px;
-margin:20px auto;
-padding:0 15px;
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-}
+    .logo span{
+      color:white;
+    }
 
-input, select{
-padding:10px;
-border-radius:8px;
-border:none;
-outline:none;
-background:#111;
-color:#fff;
-border:1px solid #333;
-flex:1;
-}
+    .nav-menu{
+      display:flex;
+      gap:30px;
+    }
 
-/* CARDS */
-.container{
-max-width:1000px;
-margin:auto;
-padding:15px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
-}
+    .nav-menu a{
+      color:white;
+      text-decoration:none;
+      transition:.3s;
+    }
 
-.card{
-background:var(--card);
-padding:15px;
-border-radius:12px;
-border:1px solid #222;
-transition:0.2s;
-}
+    .nav-menu a:hover{
+      color:#ff0000;
+    }
 
-.card:hover{
-transform:translateY(-5px);
-border-color:#333;
-}
+    /* SECTION */
 
-.tag{
-color:var(--accent);
-font-size:12px;
-}
+    section{
+      padding:100px 0;
+    }
 
-.card h3{
-margin:10px 0;
-}
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding-top:120px;
+    }
 
-.card p{
-color:var(--muted);
-font-size:14px;
-line-height:1.5;
-}
+    .hero-content{
+      display:grid;
+      grid-template-columns:1fr 450px;
+      gap:40px;
+      align-items:center;
+    }
 
-.btn{
-display:inline-block;
-margin-top:10px;
-padding:8px 12px;
-background:var(--accent);
-color:#000;
-text-decoration:none;
-border-radius:6px;
-font-weight:bold;
-}
+    .title{
+      font-family:'Orbitron',sans-serif;
+      font-size:90px;
+      line-height:0.9;
+      margin-bottom:25px;
+      text-transform:uppercase;
+    }
 
-footer{
-text-align:center;
-padding:20px;
-color:#666;
-border-top:1px solid #222;
-margin-top:30px;
-}
-</style>
+    .title span{
+      color:#ff0000;
+      text-shadow:0 0 20px #ff0000;
+    }
+
+    .subtitle{
+      display:inline-block;
+      border:1px solid #ff0000;
+      padding:12px 25px;
+      margin-bottom:30px;
+      background:rgba(255,0,0,.08);
+      letter-spacing:2px;
+    }
+
+    .description{
+      color:#ccc;
+      line-height:1.9;
+      margin-bottom:40px;
+      max-width:700px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:15px 35px;
+      border-radius:10px;
+      text-decoration:none;
+      transition:.3s;
+      font-weight:600;
+      border:2px solid #ff0000;
+      cursor:pointer;
+      display:inline-block;
+    }
+
+    .btn-primary{
+      background:#ff0000;
+      color:white;
+      box-shadow:0 0 20px rgba(255,0,0,.5);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-5px);
+      box-shadow:0 0 30px rgba(255,0,0,.9);
+    }
+
+    .btn-outline{
+      color:#ff0000;
+    }
+
+    .btn-outline:hover{
+      background:#ff0000;
+      color:white;
+    }
+
+    /* CARD */
+
+    .pricing-card{
+      background:rgba(0,0,0,.65);
+      border:1px solid rgba(255,0,0,.5);
+      backdrop-filter:blur(10px);
+      padding:40px;
+      border-radius:20px;
+      box-shadow:0 0 40px rgba(255,0,0,.15);
+    }
+
+    .price{
+      font-size:75px;
+      font-family:'Orbitron',sans-serif;
+      color:#ff0000;
+      margin:20px 0;
+      text-shadow:0 0 20px rgba(255,0,0,.8);
+    }
+
+    .features{
+      list-style:none;
+      margin-top:20px;
+    }
+
+    .features li{
+      padding:12px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    /* TITLE */
+
+    .section-title{
+      text-align:center;
+      font-size:50px;
+      margin-bottom:60px;
+      font-family:'Orbitron',sans-serif;
+    }
+
+    .section-title span{
+      color:#ff0000;
+    }
+
+    /* GRID */
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:rgba(0,0,0,.55);
+      border:1px solid rgba(255,0,0,.25);
+      padding:35px;
+      border-radius:20px;
+      transition:.4s;
+      backdrop-filter:blur(6px);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:#ff0000;
+      box-shadow:0 0 30px rgba(255,0,0,.2);
+    }
+
+    .card-icon{
+      font-size:55px;
+      margin-bottom:20px;
+    }
+
+    .card h3{
+      color:#ff0000;
+      margin-bottom:15px;
+    }
+
+    .card p{
+      color:#c9c9c9;
+      line-height:1.8;
+    }
+
+    /* FORM PAGE */
+
+    .form-page{
+      display:none;
+      min-height:100vh;
+      align-items:center;
+      justify-content:center;
+      padding:120px 20px;
+    }
+
+    .form-box{
+      width:100%;
+      max-width:600px;
+      background:rgba(0,0,0,.75);
+      border:1px solid rgba(255,0,0,.3);
+      border-radius:25px;
+      padding:50px;
+      backdrop-filter:blur(10px);
+      box-shadow:0 0 40px rgba(255,0,0,.15);
+    }
+
+    .form-box h2{
+      font-family:'Orbitron',sans-serif;
+      margin-bottom:15px;
+      font-size:40px;
+    }
+
+    .form-box h2 span{
+      color:#ff0000;
+    }
+
+    .form-box p{
+      color:#bfbfbf;
+      margin-bottom:30px;
+      line-height:1.8;
+    }
+
+    .input-group{
+      margin-bottom:25px;
+    }
+
+    .input-group label{
+      display:block;
+      margin-bottom:10px;
+      color:#ddd;
+    }
+
+    .input-group input{
+      width:100%;
+      padding:16px;
+      border-radius:10px;
+      border:1px solid rgba(255,0,0,.3);
+      background:#111;
+      color:white;
+      outline:none;
+      transition:.3s;
+      font-size:16px;
+    }
+
+    .input-group input:focus{
+      border-color:#ff0000;
+      box-shadow:0 0 15px rgba(255,0,0,.4);
+    }
+
+    .form-buttons{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+      margin-top:20px;
+    }
+
+    .success-message{
+      margin-top:25px;
+      color:#00ff88;
+      display:none;
+      font-weight:600;
+    }
+
+    footer{
+      padding:30px;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:#888;
+    }
+
+    @media(max-width:1000px){
+
+      .hero-content{
+        grid-template-columns:1fr;
+      }
+
+      .title{
+        font-size:60px;
+      }
+
+      .section-title{
+        font-size:36px;
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      .title{
+        font-size:45px;
+      }
+
+      .price{
+        font-size:50px;
+      }
+
+      .nav-menu{
+        display:none;
+      }
+
+      .form-box{
+        padding:35px 25px;
+      }
+
+    }
+
+  </style>
 </head>
 
 <body>
 
-<div class="topbar">
-<div class="menu-btn" onclick="toggleMenu()">⋮</div>
-<div class="brand">PCC</div>
+  <!-- NAVBAR -->
 
-<div id="menu" class="dropdown">
-<a href="about.html">Tentang</a>
-<a href="mailto:cyberarmywestpapua@proton.me">Kontak</a>
-</div>
-</div>
+  <nav>
 
-<div class="hero">
-<h1>Papua Cyber Community</h1>
-<p>Portal artikel Cyber Security, Networking, Programming</p>
-</div>
+    <div class="container nav-wrapper">
 
-<!-- SEARCH + FILTER -->
-<div class="controls">
-<input type="text" id="search" placeholder="Cari artikel...">
-<select id="filter">
-<option value="all">Semua Kategori</option>
-<option value="cyber">Cyber Security</option>
-<option value="networking">Networking</option>
-<option value="scripting">Scripting</option>
-<option value="pentest">Pentesting</option>
-</select>
-</div>
+      <div class="logo">
+        RED <span>TEAM</span>
+      </div>
 
-<!-- ARTICLES -->
-<div class="container" id="articles">
+      <div class="nav-menu">
+        <a href="#">Beranda</a>
+        <a href="#materi">Materi</a>
+        <a href="#contact">Kontak</a>
+      </div>
 
-<div class="card" data-category="cyber">
-<div class="tag">CYBER SECURITY</div>
-<h3>Dasar Keamanan Siber</h3>
-<p>Keamanan sistem penting untuk melindungi data dari serangan digital.</p>
-<a class="btn" href="#">Baca</a>
-</div>
+    </div>
 
-<div class="card" data-category="networking">
-<div class="tag">NETWORKING</div>
-<h3>Dasar Jaringan Komputer</h3>
-<p>Networking adalah dasar komunikasi antar perangkat dalam sistem komputer.</p>
-<a class="btn" href="#">Baca</a>
-</div>
+  </nav>
 
-<div class="card" data-category="scripting">
-<div class="tag">SCRIPTING</div>
-<h3>Otomatisasi Sistem</h3>
-<p>Scripting membantu otomatisasi tugas agar lebih efisien.</p>
-<a class="btn" href="#">Baca</a>
-</div>
+  <!-- HOME PAGE -->
 
-<div class="card" data-category="pentest">
-<div class="tag">PENTESTING</div>
-<h3>Pengujian Keamanan Sistem</h3>
-<p>Pentesting digunakan untuk menemukan celah keamanan sebelum diserang.</p>
-<a class="btn" href="#">Baca</a>
-</div>
+  <div id="homePage">
 
-</div>
+    <section class="hero">
 
-<footer>
-© 2026 Papua Cyber Community
-</footer>
+      <div class="container">
 
-<script>
+        <div class="hero-content">
 
-/* MENU */
-function toggleMenu(){
-let menu=document.getElementById("menu");
-menu.style.display=menu.style.display==="block"?"none":"block";
-}
+          <div>
 
-document.addEventListener("click",function(e){
-let menu=document.getElementById("menu");
-let btn=document.querySelector(".menu-btn");
+            <div class="subtitle">
+              KURSUS OFFLINE TERTUTUP
+            </div>
 
-if(!menu.contains(e.target) && !btn.contains(e.target)){
-menu.style.display="none";
-}
-});
+            <h1 class="title">
+              WI-FI <br>
+              <span>PENTEST</span>
+            </h1>
 
-/* SEARCH + FILTER */
-const search=document.getElementById("search");
-const filter=document.getElementById("filter");
-const cards=document.querySelectorAll(".card");
+            <p class="description">
+              Pelajari cara kerja jaringan Wi-Fi,
+              teknik reconnaissance, packet analysis,
+              hingga wireless attack secara profesional,
+              legal, dan etis.
+            </p>
 
-function filterArticles(){
+            <div class="hero-buttons">
 
-let keyword=search.value.toLowerCase();
-let category=filter.value;
+              <a href="#materi" class="btn btn-outline">
+                Lihat Materi
+              </a>
 
-cards.forEach(card=>{
-let text=card.innerText.toLowerCase();
-let cat=card.getAttribute("data-category");
+              <button class="btn btn-primary" onclick="openFormPage()">
+                Pesan Sekarang
+              </button>
 
-let matchText=text.includes(keyword);
-let matchCat=(category==="all" || cat===category);
+            </div>
 
-if(matchText && matchCat){
-card.style.display="block";
-}else{
-card.style.display="none";
-}
+          </div>
 
-});
-}
+          <div class="pricing-card">
 
-search.addEventListener("input",filterArticles);
-filter.addEventListener("change",filterArticles);
+            <h3>Kelas Premium</h3>
 
-</script>
+            <div class="price">
+              100RB
+            </div>
+
+            <p>
+              Investasi skill untuk masa depan
+              keamanan digital yang lebih aman.
+            </p>
+
+            <ul class="features">
+              <li>✔ Full Praktik</li>
+              <li>✔ Offline Private</li>
+              <li>✔ Sertifikat</li>
+              <li>✔ Mentor Berpengalaman</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- MATERI -->
+
+    <section id="materi">
+
+      <div class="container">
+
+        <h2 class="section-title">
+          Materi <span>Kursus</span>
+        </h2>
+
+        <div class="grid">
+
+          <div class="card">
+            <div class="card-icon">📡</div>
+            <h3>Dasar Wireless</h3>
+            <p>
+              Memahami konsep dasar jaringan Wi-Fi
+              dan cara kerja wireless networking.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🔍</div>
+            <h3>Recon & Scanning</h3>
+            <p>
+              Belajar scanning target,
+              monitoring jaringan,
+              dan pengumpulan informasi.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">💀</div>
+            <h3>Wireless Attack</h3>
+            <p>
+              Simulasi pengujian keamanan
+              wireless secara legal dan etis.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🛡️</div>
+            <h3>Defense & Security</h3>
+            <p>
+              Memahami cara melindungi jaringan
+              dan meningkatkan keamanan wireless.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="card" style="text-align:center;">
+
+          <h2 class="section-title">
+            PENDAFTARAN
+          </h2>
+
+          <p style="color:#ccc;margin-bottom:30px;">
+            Hubungi email berikut untuk informasi lebih lanjut.
+          </p>
+
+          <h2 style="color:#ff0000;">
+            cyberarmywestpapua@proton.me
+          </h2>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- FORM PAGE -->
+
+  <div class="form-page" id="formPage">
+
+    <div class="form-box">
+
+      <h2>
+        FORM <span>PENDAFTARAN</span>
+      </h2>
+
+      <p>
+        Silahkan isi data berikut untuk melakukan
+        pemesanan kelas Wi-Fi Pentest.
+      </p>
+
+      <form id="registerForm">
+
+        <div class="input-group">
+          <label>Nama Lengkap</label>
+          <input type="text" id="fullname" placeholder="Masukkan nama lengkap..." required>
+        </div>
+
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="email" placeholder="Masukkan email..." required>
+        </div>
+
+        <div class="form-buttons">
+
+          <button type="submit" class="btn btn-primary">
+            Kirim Data
+          </button>
+
+          <button type="button" class="btn btn-outline" onclick="backToHome()">
+            Kembali ke Home
+          </button>
+
+        </div>
+
+      </form>
+
+      <div class="success-message" id="successMessage">
+        ✔ Data berhasil dikirim!
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 RED TEAM - Wi-Fi Pentest Course
+  </footer>
+
+  <script>
+
+    const homePage = document.getElementById("homePage");
+    const formPage = document.getElementById("formPage");
+
+    function openFormPage(){
+
+      homePage.style.display = "none";
+      formPage.style.display = "flex";
+
+      window.scrollTo(0,0);
+
+    }
+
+    function backToHome(){
+
+      formPage.style.display = "none";
+      homePage.style.display = "block";
+
+      window.scrollTo(0,0);
+
+    }
+
+    // FORM SUBMIT
+
+    const registerForm = document.getElementById("registerForm");
+
+    registerForm.addEventListener("submit", function(e){
+
+      e.preventDefault();
+
+      const fullname = document.getElementById("fullname").value;
+      const email = document.getElementById("email").value;
+
+      if(fullname === "" || email === ""){
+        alert("Lengkapi data terlebih dahulu!");
+        return;
+      }
+
+      document.getElementById("successMessage").style.display = "block";
+
+      registerForm.reset();
+
+    });
+
+  </script>
 
 </body>
 </html>
