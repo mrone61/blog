@@ -3,7 +3,9 @@
 <head>
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Wi-Fi Pentest Course</title>
 
@@ -22,11 +24,15 @@
       scroll-behavior:smooth;
     }
 
+    html,
+    body{
+      overflow-x:hidden;
+    }
+
     body{
       background:#050505;
       color:white;
       font-family:'Poppins',sans-serif;
-      overflow-x:hidden;
     }
 
     /* BACKGROUND */
@@ -37,7 +43,7 @@
       inset:0;
 
       background:
-      linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.94)),
+      linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.95)),
       url('https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=1974&auto=format&fit=crop');
 
       background-size:cover;
@@ -83,7 +89,9 @@
 
       border-bottom:1px solid rgba(255,0,0,.2);
 
-      padding:25px 0;
+      padding:22px 0;
+
+      transition:.3s;
     }
 
     .nav-wrapper{
@@ -97,6 +105,7 @@
       font-size:28px;
       font-weight:900;
       color:#ff0000;
+
       text-shadow:0 0 10px rgba(255,0,0,.8);
     }
 
@@ -143,6 +152,7 @@
       background:rgba(255,0,0,.08);
       letter-spacing:2px;
       margin-bottom:30px;
+      border-radius:8px;
     }
 
     .title{
@@ -181,16 +191,21 @@
       transition:.3s;
       font-weight:600;
       display:inline-block;
+      text-align:center;
+      color:white;
+      background:none;
     }
 
     .btn-primary{
       background:#ff0000;
       color:white;
+
       box-shadow:0 0 20px rgba(255,0,0,.5);
     }
 
     .btn-primary:hover{
       transform:translateY(-5px);
+
       box-shadow:0 0 30px rgba(255,0,0,.9);
     }
 
@@ -209,11 +224,19 @@
     .pricing-card{
       background:rgba(0,0,0,.65);
       border:1px solid rgba(255,0,0,.5);
+
       border-radius:20px;
       padding:45px;
+
       backdrop-filter:blur(10px);
 
       box-shadow:0 0 40px rgba(255,0,0,.15);
+
+      transition:.4s;
+    }
+
+    .pricing-card:hover{
+      transform:translateY(-10px);
     }
 
     .pricing-card h3{
@@ -273,17 +296,23 @@
 
     .card{
       background:rgba(0,0,0,.55);
+
       border:1px solid rgba(255,0,0,.25);
+
       border-radius:20px;
+
       padding:35px;
 
       transition:.4s;
+
       backdrop-filter:blur(6px);
     }
 
     .card:hover{
       transform:translateY(-10px);
+
       border-color:#ff0000;
+
       box-shadow:0 0 30px rgba(255,0,0,.25);
     }
 
@@ -310,10 +339,13 @@
       margin:auto;
 
       background:rgba(0,0,0,.6);
+
       border:1px solid rgba(255,0,0,.25);
 
       border-radius:20px;
+
       padding:50px;
+
       text-align:center;
     }
 
@@ -343,7 +375,7 @@
       display:none;
       align-items:center;
       justify-content:center;
-      padding:120px 20px;
+      padding:140px 20px 60px;
     }
 
     .form-box{
@@ -351,9 +383,11 @@
       max-width:650px;
 
       background:rgba(0,0,0,.7);
+
       border:1px solid rgba(255,0,0,.3);
 
       border-radius:25px;
+
       padding:50px;
 
       backdrop-filter:blur(10px);
@@ -390,6 +424,7 @@
     .input-group input{
       width:100%;
       padding:16px;
+
       border-radius:10px;
 
       border:1px solid rgba(255,0,0,.3);
@@ -398,12 +433,15 @@
       color:white;
 
       outline:none;
+
       transition:.3s;
+
       font-size:16px;
     }
 
     .input-group input:focus{
       border-color:#ff0000;
+
       box-shadow:0 0 15px rgba(255,0,0,.4);
     }
 
@@ -432,46 +470,169 @@
 
     /* RESPONSIVE */
 
-    @media(max-width:1000px){
+    @media screen and (max-width:1100px){
 
       .hero-content{
         grid-template-columns:1fr;
+        text-align:center;
+      }
+
+      .description{
+        margin:auto;
+        margin-bottom:35px;
+      }
+
+      .hero-buttons{
+        justify-content:center;
+      }
+
+      .pricing-card{
+        width:100%;
+        max-width:500px;
+        margin:auto;
       }
 
       .title{
-        font-size:65px;
-      }
-
-      .section-title{
-        font-size:40px;
+        font-size:70px;
       }
 
     }
 
-    @media(max-width:700px){
+    @media screen and (max-width:768px){
+
+      nav{
+        padding:18px 0;
+      }
+
+      .nav-wrapper{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .nav-menu{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+      }
+
+      .hero{
+        padding-top:180px;
+      }
 
       .title{
-        font-size:45px;
+        font-size:52px;
+      }
+
+      .subtitle{
+        font-size:13px;
+        padding:10px 18px;
+      }
+
+      .description{
+        font-size:15px;
+        line-height:1.8;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+        width:100%;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .pricing-card{
+        padding:30px 25px;
       }
 
       .price{
         font-size:55px;
       }
 
-      .nav-menu{
-        display:none;
+      .section-title{
+        font-size:35px;
       }
 
-      .hero-buttons{
-        flex-direction:column;
+      section{
+        padding:70px 0;
       }
 
-      .btn{
-        text-align:center;
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .card{
+        padding:28px 22px;
+      }
+
+      .contact-box{
+        padding:35px 20px;
+      }
+
+      .contact-box h2{
+        font-size:32px;
+      }
+
+      .contact-email{
+        font-size:18px;
+        word-break:break-word;
       }
 
       .form-box{
-        padding:35px 25px;
+        padding:35px 22px;
+      }
+
+      .form-box h2{
+        font-size:32px;
+      }
+
+      .form-buttons{
+        flex-direction:column;
+      }
+
+    }
+
+    @media screen and (max-width:480px){
+
+      .container{
+        width:92%;
+      }
+
+      .title{
+        font-size:40px;
+      }
+
+      .price{
+        font-size:45px;
+      }
+
+      .logo{
+        font-size:22px;
+      }
+
+      .nav-menu a{
+        font-size:14px;
+      }
+
+      .section-title{
+        font-size:27px;
+      }
+
+      .card-icon{
+        font-size:42px;
+      }
+
+      .pricing-card h3{
+        font-size:20px;
+      }
+
+      .features li{
+        font-size:14px;
+      }
+
+      .form-box h2{
+        font-size:26px;
       }
 
     }
@@ -519,7 +680,7 @@
           <div>
 
             <div class="subtitle">
-              KURSUS OFFLINE TERTUTUP
+              KURSUS OFFLINE PRIVATE
             </div>
 
             <h1 class="title">
@@ -529,13 +690,9 @@
 
             <p class="description">
 
-              Pelajari cara kerja jaringan Wi-Fi,
-              reconnaissance, packet analysis,
-              hingga wireless attack secara profesional,
-              legal, dan etis.
+              Pelajari dunia wireless security mulai dari dasar hingga teknik pengujian keamanan Wi-Fi secara profesional dan legal.
 
-              Bangun skill cyber security dan jadilah
-              bagian dari generasi keamanan digital.
+              Cocok untuk pemula maupun yang ingin serius masuk dunia Cyber Security.
 
             </p>
 
@@ -545,8 +702,11 @@
                 Lihat Materi
               </a>
 
-              <button class="btn btn-primary" onclick="openFormPage()">
+              <button class="btn btn-primary"
+              onclick="openFormPage()">
+
                 Pesan Sekarang
+
               </button>
 
             </div>
@@ -565,17 +725,17 @@
 
             <p>
 
-              Investasi skill untuk memahami keamanan
-              jaringan wireless secara profesional.
+              Investasi skill cyber security
+              untuk masa depan yang lebih aman.
 
             </p>
 
             <ul class="features">
 
+              <li>✔ Offline Class</li>
               <li>✔ Full Praktik</li>
-              <li>✔ Offline Private</li>
-              <li>✔ Mentor Berpengalaman</li>
               <li>✔ Sertifikat</li>
+              <li>✔ Mentor Berpengalaman</li>
               <li>✔ Real Practice</li>
 
             </ul>
@@ -608,9 +768,9 @@
 
             <p>
 
-              Memahami konsep dasar jaringan Wi-Fi,
-              access point, frequency,
-              dan cara kerja wireless networking.
+              Memahami dasar jaringan Wi-Fi,
+              frequency, access point,
+              dan komunikasi wireless.
 
             </p>
 
@@ -691,8 +851,11 @@
             cyberarmywestpapua@proton.me
           </div>
 
-          <button class="btn btn-primary" onclick="openFormPage()">
+          <button class="btn btn-primary"
+          onclick="openFormPage()">
+
             Pesan Sekarang
+
           </button>
 
         </div>
@@ -715,8 +878,8 @@
 
       <p>
 
-        Silahkan isi data berikut untuk
-        melakukan pemesanan kelas Wi-Fi Pentest.
+        Isi data berikut untuk melakukan
+        pemesanan kelas Wi-Fi Pentest.
 
       </p>
 
@@ -748,8 +911,11 @@
 
         <div class="form-buttons">
 
-          <button type="submit" class="btn btn-primary">
+          <button type="submit"
+          class="btn btn-primary">
+
             Kirim ke WhatsApp
+
           </button>
 
           <button
@@ -765,8 +931,11 @@
 
       </form>
 
-      <div class="success-message" id="successMessage">
+      <div class="success-message"
+      id="successMessage">
+
         ✔ Data berhasil dikirim!
+
       </div>
 
     </div>
@@ -785,12 +954,16 @@
 
     // PAGE SWITCH
 
-    const homePage = document.getElementById("homePage");
-    const formPage = document.getElementById("formPage");
+    const homePage =
+    document.getElementById("homePage");
+
+    const formPage =
+    document.getElementById("formPage");
 
     function openFormPage(){
 
       homePage.style.display = "none";
+
       formPage.style.display = "flex";
 
       window.scrollTo(0,0);
@@ -800,6 +973,7 @@
     function backToHome(){
 
       formPage.style.display = "none";
+
       homePage.style.display = "block";
 
       window.scrollTo(0,0);
@@ -808,18 +982,24 @@
 
     // FORM SUBMIT
 
-    const registerForm = document.getElementById("registerForm");
+    const registerForm =
+    document.getElementById("registerForm");
 
-    registerForm.addEventListener("submit", function(e){
+    registerForm.addEventListener("submit",
+    function(e){
 
       e.preventDefault();
 
-      const fullname = document.getElementById("fullname").value;
-      const email = document.getElementById("email").value;
+      const fullname =
+      document.getElementById("fullname").value;
+
+      const email =
+      document.getElementById("email").value;
 
       if(fullname === "" || email === ""){
 
         alert("Lengkapi data terlebih dahulu!");
+
         return;
 
       }
@@ -828,7 +1008,7 @@
 
       const phoneNumber = "6282239959100";
 
-      // PESAN OTOMATIS
+      // PESAN
 
       const message =
 `Halo Admin Wi-Fi Pentest
@@ -838,7 +1018,7 @@ Saya ingin mendaftar kursus.
 Nama Lengkap : ${fullname}
 Email : ${email}`;
 
-      // URL WHATSAPP
+      // URL WA
 
       const whatsappURL =
 `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -847,13 +1027,44 @@ Email : ${email}`;
 
       window.open(whatsappURL, "_blank");
 
-      // SUCCESS MESSAGE
+      // SUCCESS
 
-      document.getElementById("successMessage").style.display = "block";
+      document.getElementById("successMessage")
+      .style.display = "block";
 
       // RESET FORM
 
       registerForm.reset();
+
+    });
+
+    // NAVBAR EFFECT
+
+    window.addEventListener("scroll",
+    function(){
+
+      const nav =
+      document.querySelector("nav");
+
+      if(window.scrollY > 50){
+
+        nav.style.background =
+        "rgba(0,0,0,.92)";
+
+        nav.style.boxShadow =
+        "0 0 20px rgba(255,0,0,.15)";
+
+      }
+
+      else{
+
+        nav.style.background =
+        "rgba(0,0,0,.7)";
+
+        nav.style.boxShadow =
+        "none";
+
+      }
 
     });
 
