@@ -13,18 +13,18 @@ background:#000;
 color:#fff;
 }
 
-/* TOP NAV */
+/* TOP BAR */
 .topbar{
 display:flex;
 align-items:center;
-padding:15px;
+padding:12px 15px;
 background:#0a0a0a;
 position:sticky;
 top:0;
 }
 
 .menu-btn{
-font-size:24px;
+font-size:26px;
 cursor:pointer;
 user-select:none;
 }
@@ -38,7 +38,8 @@ left:10px;
 background:#111;
 border:1px solid #333;
 border-radius:8px;
-overflow:hidden;
+width:150px;
+z-index:999;
 }
 
 .dropdown a{
@@ -52,27 +53,41 @@ text-decoration:none;
 background:#222;
 }
 
-/* CV SECTION */
+/* CONTENT */
 .container{
 max-width:900px;
-margin:40px auto;
-padding:20px;
+margin:20px auto;
+padding:15px;
 }
 
 .card{
 background:#111;
-padding:20px;
+padding:18px;
+margin-bottom:15px;
 border-radius:10px;
-margin-bottom:20px;
+border:1px solid #222;
 }
 
-h1,h2{
+.tag{
+color:#00ffcc;
+font-size:12px;
+}
+
+h2{
 color:#00ffcc;
 }
 
-@media(max-width:600px){
-.container{padding:10px;}
+/* BACK BUTTON */
+.back{
+display:inline-block;
+margin-bottom:15px;
+padding:8px 12px;
+background:#222;
+color:#fff;
+text-decoration:none;
+border-radius:6px;
 }
+
 </style>
 </head>
 
@@ -90,42 +105,48 @@ color:#00ffcc;
 <div class="container">
 
 <div class="card">
-<h1>CV - Papua Cyber Community</h1>
-<p>
-Papua Cyber Community adalah sebuah komunitas yang berfokus pada pengembangan pengetahuan di bidang teknologi informasi, khususnya jaringan komputer, pemrograman, dan keamanan siber.
-</p>
+<h2>Papua Cyber Community</h2>
+<p>Komunitas yang berfokus pada pengembangan teknologi, networking, programming, dan keamanan siber.</p>
 </div>
 
 <div class="card">
-<h2>Profil</h2>
-<p>
-Komunitas ini dibangun untuk menjadi wadah pembelajaran, diskusi, serta pengembangan kemampuan anggota dalam dunia teknologi modern dan keamanan digital.
-</p>
+<div class="tag">Cyber Security</div>
+<h2>Dasar Pentesting dalam Keamanan Sistem</h2>
+<p>Pentesting digunakan untuk menguji keamanan sistem dan menemukan celah sebelum disalahgunakan.</p>
 </div>
 
 <div class="card">
-<h2>Fokus Bidang</h2>
-<ul>
-<li>Cyber Security (Pentesting)</li>
-<li>Networking (Jaringan Komputer)</li>
-<li>Programming & Scripting</li>
-</ul>
+<div class="tag">Networking</div>
+<h2>Pentingnya Jaringan Komputer</h2>
+<p>Networking adalah dasar komunikasi antar perangkat dalam dunia teknologi modern.</p>
 </div>
 
 <div class="card">
-<h2>Tujuan</h2>
-<p>
-Membangun sumber daya manusia yang memiliki kemampuan di bidang teknologi informasi dan keamanan siber untuk menghadapi tantangan era digital.
-</p>
+<div class="tag">Programming</div>
+<h2>Scripting untuk Otomatisasi Sistem</h2>
+<p>Scripting membantu mengotomatisasi tugas agar lebih efisien dan cepat.</p>
 </div>
 
 </div>
 
 <script>
+
+// toggle menu
 function toggleMenu(){
-var menu=document.getElementById("menu");
-menu.style.display=menu.style.display==="block"?"none":"block";
+let menu=document.getElementById("menu");
+menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
+
+// close menu when click outside
+document.addEventListener("click", function(event){
+let menu=document.getElementById("menu");
+let btn=document.querySelector(".menu-btn");
+
+if(!menu.contains(event.target) && !btn.contains(event.target)){
+menu.style.display="none";
+}
+});
+
 </script>
 
 </body>
