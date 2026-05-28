@@ -1,147 +1,132 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Papua Cyber Community</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Papua Cyber Community</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            color: #111;
-        }
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#000;
+color:#fff;
+}
 
-        header {
-            background: #0f172a;
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
+/* TOP NAV */
+.topbar{
+display:flex;
+align-items:center;
+padding:15px;
+background:#0a0a0a;
+position:sticky;
+top:0;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 28px;
-        }
+.menu-btn{
+font-size:24px;
+cursor:pointer;
+user-select:none;
+}
 
-        header p {
-            margin-top: 5px;
-            color: #cbd5e1;
-        }
+/* DROPDOWN */
+.dropdown{
+display:none;
+position:absolute;
+top:50px;
+left:10px;
+background:#111;
+border:1px solid #333;
+border-radius:8px;
+overflow:hidden;
+}
 
-        nav {
-            background: #1e293b;
-            padding: 10px;
-            text-align: center;
-        }
+.dropdown a{
+display:block;
+padding:10px;
+color:#fff;
+text-decoration:none;
+}
 
-        nav a {
-            color: white;
-            margin: 0 12px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+.dropdown a:hover{
+background:#222;
+}
 
-        .container {
-            max-width: 1000px;
-            margin: 25px auto;
-            padding: 10px;
-        }
+/* CV SECTION */
+.container{
+max-width:900px;
+margin:40px auto;
+padding:20px;
+}
 
-        .card {
-            background: white;
-            padding: 18px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
+.card{
+background:#111;
+padding:20px;
+border-radius:10px;
+margin-bottom:20px;
+}
 
-        .card h2 {
-            margin-top: 0;
-        }
+h1,h2{
+color:#00ffcc;
+}
 
-        .tag {
-            display: inline-block;
-            padding: 4px 8px;
-            background: #2563eb;
-            color: white;
-            border-radius: 5px;
-            font-size: 12px;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 12px;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        footer {
-            background: #0f172a;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 30px;
-        }
-    </style>
+@media(max-width:600px){
+.container{padding:10px;}
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    <h1>Papua Cyber Community</h1>
-    <p>Komunitas Belajar Teknologi, Jaringan, dan Keamanan Siber</p>
-</header>
+<div class="topbar">
+<div class="menu-btn" onclick="toggleMenu()">⋮</div>
 
-<nav>
-    <a href="#">Beranda</a>
-    <a href="#">Artikel</a>
-    <a href="#">Cyber Security</a>
-    <a href="#">Networking</a>
-    <a href="#">Tentang Kami</a>
-</nav>
+<div id="menu" class="dropdown">
+<a href="about.html">Tentang</a>
+<a href="mailto:cyberarmywestpapua@proton.me">Kontak</a>
+</div>
+</div>
 
 <div class="container">
 
-    <div class="card">
-        <span class="tag">Cyber Security</span>
-        <h2>Pentingnya Keamanan Siber di Era Digital</h2>
-        <p>
-            Keamanan siber menjadi aspek penting dalam perkembangan teknologi modern.
-            Setiap sistem yang terhubung ke internet memiliki potensi risiko serangan digital.
-        </p>
-        <a href="#" class="btn">Baca Artikel</a>
-    </div>
+<div class="card">
+<h1>CV - Papua Cyber Community</h1>
+<p>
+Papua Cyber Community adalah sebuah komunitas yang berfokus pada pengembangan pengetahuan di bidang teknologi informasi, khususnya jaringan komputer, pemrograman, dan keamanan siber.
+</p>
+</div>
 
-    <div class="card">
-        <span class="tag">Networking</span>
-        <h2>Dasar Jaringan Komputer untuk Pemula</h2>
-        <p>
-            Jaringan komputer adalah fondasi utama dalam komunikasi antar perangkat.
-            Memahami konsep dasar networking sangat penting untuk bidang IT.
-        </p>
-        <a href="#" class="btn">Baca Artikel</a>
-    </div>
+<div class="card">
+<h2>Profil</h2>
+<p>
+Komunitas ini dibangun untuk menjadi wadah pembelajaran, diskusi, serta pengembangan kemampuan anggota dalam dunia teknologi modern dan keamanan digital.
+</p>
+</div>
 
-    <div class="card">
-        <span class="tag">Programming</span>
-        <h2>Peran Scripting dalam Otomatisasi Sistem</h2>
-        <p>
-            Scripting digunakan untuk mengotomatisasi berbagai tugas dalam sistem komputer
-            sehingga pekerjaan menjadi lebih efisien.
-        </p>
-        <a href="#" class="btn">Baca Artikel</a>
-    </div>
+<div class="card">
+<h2>Fokus Bidang</h2>
+<ul>
+<li>Cyber Security (Pentesting)</li>
+<li>Networking (Jaringan Komputer)</li>
+<li>Programming & Scripting</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Tujuan</h2>
+<p>
+Membangun sumber daya manusia yang memiliki kemampuan di bidang teknologi informasi dan keamanan siber untuk menghadapi tantangan era digital.
+</p>
+</div>
 
 </div>
 
-<footer>
-    © 2026 Papua Cyber Community - All Rights Reserved
-</footer>
+<script>
+function toggleMenu(){
+var menu=document.getElementById("menu");
+menu.style.display=menu.style.display==="block"?"none":"block";
+}
+</script>
 
 </body>
 </html>
